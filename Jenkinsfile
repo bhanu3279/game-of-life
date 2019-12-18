@@ -1,7 +1,7 @@
 pipeline {
     agent any 
     tools { 
-        maven 'Maven' 
+        maven 'maven' 
       
     }
 stages { 
@@ -12,7 +12,7 @@ stages {
 
       // Get some code from a GitHub repository
 
-      git 'https://github.com/raknas999/game-of-life.git'
+      git 'https://github.com/bhanu3279/game-of-life.git'
 
       // Get the Maven tool.
      
@@ -49,7 +49,7 @@ stages {
  }
     stage('Deploy War') {
       steps {
-          deploy adapters: [tomcat8(credentialsId: 'tomcat', path: '', url: 'http://13.234.238.189:8080/')], contextPath: 'gameoflife', war: '**/*.war '
+          deploy adapters: [tomcat8(credentialsId: 'tomcat', path: '', url: 'http://13.234.238.12:8080/')], contextPath: 'gameoflife', war: '**/*.war '
         //sh label: '', script: 'ansible-playbook deploy.yml'
       }
  }
