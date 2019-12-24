@@ -12,7 +12,7 @@ stages {
 
       // Get some code from a GitHub repository
 
-      git 'https://github.com/raknas999/game-of-life.git'
+      git 'https://github.com/bhanu329/game-of-life.git'
 
       // Get the Maven tool.
      
@@ -49,9 +49,9 @@ stages {
         withSonarQubeEnv('sonarqube') {
             sh "${scannerHome}/bin/sonar-scanner"
         }
-        timeout(time: 10, unit: 'MINUTES') {
-            waitForQualityGate abortPipeline: true
-        }
+        //timeout(time: 10, unit: 'MINUTES') {
+          //  waitForQualityGate abortPipeline: true
+        //}
     }
 }
      stage('Artifact upload') {
@@ -69,8 +69,8 @@ post {
         success {
             archiveArtifacts 'gameoflife-web/target/*.war'
         }
-        failure {
-            mail to:"sankar.dadi@qentelli.com", subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Build failed"
-        }
+        //failure {
+          //  mail to:"sankar.dadi@qentelli.com", subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Build failed"
+        //}
     }       
 }
