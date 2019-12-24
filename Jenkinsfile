@@ -10,9 +10,9 @@ stages {
      steps {
 // for display purpose
 
-      // Get some code from a GitHub repository
+      // Get some code from a Hub repository
 
-      git 'https://github.com/bhanu329/game-of-life.git'
+      git 'https://github.com/bhanu3279/game-of-life.git'
 
       // Get the Maven tool.
      
