@@ -12,7 +12,7 @@ stages {
 
       // Get some code from a GitHub repository
 
-      git 'https://github.com/bhanu329/game-of-life.git'
+      git 'https://github.com/bhanu3279/game-of-life.git'
 
       // Get the Maven tool.
      
@@ -49,9 +49,7 @@ stages {
         withSonarQubeEnv('sonarqube') {
             sh "${scannerHome}/bin/sonar-scanner"
         }
-        timeout(time: 10, unit: 'MINUTES') {
-            waitForQualityGate abortPipeline: true
-        }
+        
     }
 }
      stage('Artifact upload') {
