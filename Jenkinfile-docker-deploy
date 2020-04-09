@@ -1,9 +1,4 @@
 pipeline {
-  environment {
-    registry = "bhanu3279/gameoflife-image"
-    registryCredential = 'dockerhub'
-     }
-
     agent any 
     tools { 
         maven 'maven' 
@@ -64,7 +59,7 @@ stages {
  }
     stage('Build and Push Docker Image') {
       steps {
-        sh label: '', script: ''' sudo docker build -t gameoflife-image:$BUILD_NUMBER /var/lib/jenkins/workspace/CI4/gameoflife-web/target/gameoflife.war
+        sh label: '', script: ''' sudo docker build -t gameoflife-image:$BUILD_NUMBER .
                                   sudo docker tag gameoflife-image:$BUILD_NUMBER docker.io/bhanu3279/gameoflife-image:$BUILD_NUMBER
                                   sudo docker push docker.io/bhanu3279/gameoflife-image:$BUILD_NUMBER'''
       }
