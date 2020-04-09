@@ -64,9 +64,9 @@ stages {
  }
     stage('Build and Push Docker Image') {
       steps {
-        sh label: '', script: '''docker build -t gameoflife-image:$BUILD_NUMBER /var/lib/jenkins/workspace/CI4/gameoflife-web/target
-                                 docker tag gameoflife-image:$BUILD_NUMBER docker.io/bhanu3279/gameoflife-image:$BUILD_NUMBER
-                                 docker push docker.io/bhanu3279/gameoflife-image:$BUILD_NUMBER'''
+        sh label: '', script: ''' sudo docker build -t gameoflife-image:$BUILD_NUMBER /var/lib/jenkins/workspace/CI4/gameoflife-web/target/gameoflife.war
+                                  sudo docker tag gameoflife-image:$BUILD_NUMBER docker.io/bhanu3279/gameoflife-image:$BUILD_NUMBER
+                                  sudo docker push docker.io/bhanu3279/gameoflife-image:$BUILD_NUMBER'''
       }
  }
 }
