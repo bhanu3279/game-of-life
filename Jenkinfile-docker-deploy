@@ -64,20 +64,20 @@ stages {
                                   sudo docker push docker.io/bhanujbk/gameoflife-image:$BUILD_NUMBER'''
       }
  }
-  stage('Update Image Version') {
-      steps {
-        sh label: '', script: '''sed -i s/latest/$BUILD_NUMBER/ deploy-kube.yml'''
+  //stage('Update Image Version') {
+      //steps {
+        //sh label: '', script: '''sed -i s/latest/$BUILD_NUMBER/ deploy-kube.yml'''
 
-      }
- }
- stage('Apply Kubernetes files') {
-            steps {
-             sh label: '', script: '''scp *.yml jenkins@15.206.68.201:/home/jenkins
-                                  ssh jenkins@15.206.68.201 kubectl apply -f deploy-kube.yml
-                                  ssh jenkins@15.206.68.201 kubectl apply -f service.yml'''
+      //}
+ //}
+ //stage('Apply Kubernetes files') {
+            //steps {
+             //sh label: '', script: '''scp *.yml jenkins@15.206.68.201:/home/jenkins
+                                  //ssh jenkins@15.206.68.201 kubectl apply -f deploy-kube.yml
+                                  //ssh jenkins@15.206.68.201 kubectl apply -f service.yml'''
            
-        }
-     }
+        //}
+     //}
 }
     
 }
